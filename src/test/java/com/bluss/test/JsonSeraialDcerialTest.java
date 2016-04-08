@@ -9,5 +9,6 @@ public class JsonSeraialDcerialTest {
 		DummyPerson person = DummyPerson.getDummyPerson();
 		String serializedPersonString = jsonSD.writeObjectToSerializedString(person);
 		System.out.println(serializedPersonString);
+		
 	}
 }
