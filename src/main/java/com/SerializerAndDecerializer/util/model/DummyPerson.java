@@ -46,7 +46,6 @@ public class DummyPerson implements Serializable{
 		dummyPerson.setId(1);
 		dummyPerson.setName("sunil");
 		dummyPerson.date = new Date();
-		System.out.println(new Date());
 		List<String> msgList = new LinkedList<String>();
 		msgList.add("Email");
 		msgList.add("Phone");

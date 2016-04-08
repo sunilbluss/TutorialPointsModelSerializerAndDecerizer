@@ -22,15 +22,15 @@ import com.SerializerAndDecerializer.util.model.DummyPerson;
 
 public class RunApplication {
 	public static void main(String[] args) {
-		File profileOutFile = new File(
+		/*File profileOutFile = new File(
 				"E:\\\\Test.json");
 		final String LOC = "E:\\\\";
 		DummyPerson dummyPerson = DummyPerson.getDummyPerson();
 		YamlObjectRWserviceServiceImpl yImp = new YamlObjectRWserviceServiceImpl();
 		PropertiesObjectRWserviceServiceImpl pImp = new PropertiesObjectRWserviceServiceImpl();
-		/*XmlObjectRWserviceServiceImpl xImp = new XmlObjectRWserviceServiceImpl();
+		XmlObjectRWserviceServiceImpl xImp = new XmlObjectRWserviceServiceImpl();
 		xImp.writeObject(dummyPerson, LOC+"XmlText.xml");
-		DummyPerson per = (DummyPerson) xImp.readObject(LOC+"XmlText.xml");*/
+		DummyPerson per = (DummyPerson) xImp.readObject(LOC+"XmlText.xml");
 		ObjectMapper MAPPER = new ObjectMapper();
 		JsonSerialDecerial.writeObject(dummyPerson, LOC+"Test.json");
 		
@@ -66,7 +66,7 @@ public class RunApplication {
 		}
 		
 		yImp.writeObject(dummyPerson, LOC+"YMLTest.yml");
-		/*Properties prop = (Properties) pImp.readObject(LOC+"Prop.properties");
+		Properties prop = (Properties) pImp.readObject(LOC+"Prop.properties");
 		pImp.writeObject(prop, LOC+"CpProp.properties");
 		InputStream input = RunApplication.class.getClassLoader().getResourceAsStream("application.properties");
 		Properties prop2 = new Properties();

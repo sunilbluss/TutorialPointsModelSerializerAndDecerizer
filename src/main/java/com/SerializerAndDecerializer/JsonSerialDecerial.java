@@ -11,13 +11,13 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JsonSerialDecerial{
+public class JsonSerialDecerial {
 	public static final ObjectMapper JOSN_MAPPER = new ObjectMapper();
-	
-	public static Object readObject(String loc,Class<?> clazz) {
+
+	public static Object readObjectFromFileLoc(String loc, Class<?> clazz) {
 		try {
-			return JOSN_MAPPER.readValue(new File(loc),clazz);
-			
+			return JOSN_MAPPER.readValue(new File(loc), clazz);
+
 		} catch (JsonParseException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
@@ -28,7 +28,7 @@ public class JsonSerialDecerial{
 		return null;
 	}
 
-	public static  boolean writeObject(Object obj, String loc) {
+	public static boolean writeObjectToFileLoc(Object obj, String loc) {
 		try {
 			String writeString = JOSN_MAPPER.writerWithDefaultPrettyPrinter()
 					.writeValueAsString(obj);
@@ -46,11 +46,44 @@ public class JsonSerialDecerial{
 		}
 		return false;
 	}
-	
-	public static Object readObjectViaFile(File file,Class<?> clazz) {
+
+	public static Object readObjectFromSerializedObject(
+			String serializedObject, Class<?> clazz) {
 		try {
-			return JOSN_MAPPER.readValue(file,clazz);
-			
+			return JOSN_MAPPER.readValue(serializedObject, clazz);
+
+		} catch (JsonParseException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static String writeObjectToSerializedString(Object obj) {
+		try {
+			String serializedObject = JOSN_MAPPER.writerWithDefaultPrettyPrinter()
+					.writeValueAsString(obj);
+			return serializedObject;
+		} catch (JsonGenerationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static Object readObjectViaFile(File file, Class<?> clazz) {
+		try {
+			return JOSN_MAPPER.readValue(file, clazz);
+
 		} catch (JsonParseException e) {
 			e.printStackTrace();
 		} catch (JsonMappingException e) {
