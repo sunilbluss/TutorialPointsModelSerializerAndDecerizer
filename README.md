@@ -7,3 +7,6 @@ this project has these functionality
   - Each class has document
   - Example senerio
   - test cases
+ 
+> Maven will create same document structure like the project
+> for documentation of your project.  
